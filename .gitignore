@@ -1,0 +1,8 @@
+Dai2024 - Trainable Fixed Point Quantization for Deep Learning Acceleration on FPGAs.pdf
+*.csv
+*.xlsx
+*.npy
+*.bib
+*.log
+*.json
+*.pyc
