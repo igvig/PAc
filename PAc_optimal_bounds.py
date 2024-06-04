@@ -434,7 +434,7 @@ def multi_opt_runner(data_path: str, name: str, monitor: Callable, approx: PAc_A
         pso = PSOEngine2D()
         cost =pso.optimize(monitor, max_iter, sig_digits, patience, **kwargs)
         pos = pso.best_pos
-        compound, auc, emax = approx.approx_error(pos[0], pos[1])
+        compound, auc, emax = approx.approx_error(pos[0], pos[1], **kwargs)
         df.loc[len(df.index)]=[pos[0], pos[1], cost, auc, emax]
         df.to_csv(csv_file_name, index=False)
     return df
@@ -486,7 +486,7 @@ def multi_opt_max_runner(data_path: str, name: str, monitor: Callable, approx: P
         pso = PSOEngine2D()
         cost = pso.optimize(monitor, max_iter, sig_digits, patience, **kwargs)
         pos = pso.best_pos
-        compound, auc, emax = approx.approx_error(pos[0], pos[1])
+        compound, auc, emax = approx.approx_error(pos[0], pos[1], **kwargs)
         df.loc[len(df.index)]=[pos[0], pos[1], compound, auc, emax]
         df.to_csv(csv_file_name, index=False)
     return df
