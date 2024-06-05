@@ -41,6 +41,7 @@ import os, sys
 import datetime as dt
 import gc
 import pandas as pd
+from regex import E
 
 def get_env_type() -> str:
     '''
@@ -76,8 +77,8 @@ def print_versions_and_GPU() -> None:
     print(f'TensorFlow: {tensorflow.__version__}')
     try:
         print(f'Keras: {tensorflow.keras.version()}')
-    except:
-        print(f'Keras: Unknown version')
+    except Exception as e:
+        print(f'Keras: Unknown version (Error: {e})')
     print(f'Scikit-learn: {sklearn.__version__}')
     if get_env_type() == 'google.colab':
       if os.environ.keys().__contains__('TPU_ACCELERATOR_TYPE'):
